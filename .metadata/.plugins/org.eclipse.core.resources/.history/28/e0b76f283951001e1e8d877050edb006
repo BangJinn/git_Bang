@@ -1,0 +1,26 @@
+package inheritance.person;
+
+public class SuperSonicAirPlane  extends AirPlane{
+
+	// 1 - 일반 비행, 2 - 초음속비행
+	
+	
+	
+	final int NORMAL = 1;
+	final int SUPERSONIC = 2;
+	
+	int flyMode = NORMAL;
+	
+	public void 비행하다() {
+		if(flyMode == 2) {
+			System.out.println("비행기가 초음속 비행합니다.");
+		}
+		eles{
+			super.비행하다();
+		super.비행하다();
+			
+		
+		
+	}
+  }
+}

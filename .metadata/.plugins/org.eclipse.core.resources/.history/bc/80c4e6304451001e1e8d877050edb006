@@ -1,0 +1,25 @@
+package inheritance.person.statement.q4;
+
+public class Employee {
+	public String name;
+	public String grade;
+	public Employee(String name) {
+		this.name = name;
+		
+	}
+}
+public class Engineer extends Employee{	
+	public Engineer(String name) {
+		super(name, grade);
+	
+	}
+	private String skillset;
+	public String getSkillSet() {
+		return skillset;
+		
+	}
+	public void setSkillSet(Strin Skillset)
+		this.skillset = skillset;
+}
+	
+	

@@ -1,0 +1,23 @@
+package kr.or.iei1.run;
+
+import kr.or.iei1.model.User1;
+
+public class User1Test {
+
+	public static void main(String[] args) {
+		//user2 - 인스턴스(객체)
+		User1 user2 = new User1();
+		
+		user2.setId("abc123");
+		
+		user2.setPwd("12345");
+		user2.setName("고병진");
+		
+		
+		System.out.println("아이디 : " + user2.getId());
+		System.out.println("비밀번호 : " + user2.getPwd());
+		System.out.println("이름 : " + user2.getName());
+		
+	}
+	
+}

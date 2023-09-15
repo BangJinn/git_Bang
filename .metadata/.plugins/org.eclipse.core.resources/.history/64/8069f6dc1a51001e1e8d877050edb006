@@ -1,0 +1,21 @@
+package transport;
+
+public class Bus {
+	//필드
+	
+	int busNumber; 
+	int passenger;
+	int money;
+	
+	public Bus(int busNumber) {
+		this.busNumber = busNumber;
+		
+	}
+
+	public void take(int fee) {
+		this.money += fee;
+		passenger++;
+	}
+
+}
+

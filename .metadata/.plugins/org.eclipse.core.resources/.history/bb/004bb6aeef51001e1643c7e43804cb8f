@@ -1,0 +1,9 @@
+package customers;
+
+//상속을 위해서 필드의 접근제어자 - 프로텍티드
+public class Customer {
+	protected int customerId; //고객 아이디
+	protected String customerName;
+	protected String customerGrade;
+	int bounsPoint;
+}

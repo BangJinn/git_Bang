@@ -1,0 +1,14 @@
+package polymo.animals;
+
+class Animal{
+	
+	
+}
+
+public class AnimalTest {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

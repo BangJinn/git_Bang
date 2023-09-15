@@ -1,0 +1,9 @@
+package polymo.fruits;
+
+public class Peach extends Fruit {
+
+	public peach() {
+		name = "포도";
+		weight = "700g";
+		price = 5000;
+}

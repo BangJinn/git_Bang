@@ -1,0 +1,31 @@
+package kr.or.iei.run;
+
+import kr.or.iei.model.vo.User;
+
+import kr.or.iei.func.Exam;
+
+public class Start {
+
+public static void main(String[] args) {
+
+	Start user1 = new Start();
+	
+	user1.exam1();
+	
+	user1.toString();
+	user1.toString();
+	user1.toString();
+	user1.toString();
+	user1.toString();
+	
+	
+	
+	System.out.println("아이디 :" + user1.toString());
+	System.out.println("비밀번호 :" + user1.toString());
+	System.out.println("이름 :" + user1.toString());
+	System.out.println("나이 :" + user1.toString());
+	System.out.println("번호 :" + user1.toString());
+	
+}
+
+}

@@ -1,0 +1,16 @@
+package customers;
+
+public class CustomerTset2 {
+
+	public static void main(String[] args) {
+		// 부모
+		Customer lee = new Customer(1001, "이순신");
+		
+		int price = 10000;
+		
+		int cost = lee.calcPrice(price);
+		
+		System.out.println(lee.showCsutomerInfo());
+	}
+
+}
