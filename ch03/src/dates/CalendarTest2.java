@@ -28,6 +28,8 @@ public class CalendarTest2 {
 	
 		betweenTime = betweenTime/(24*60*60*1000);
 		System.out.println(betweenTime + "일 지났습니다.");
+		
+		System.out.println(System.currentTimeMillis());
 	}
 
 }
