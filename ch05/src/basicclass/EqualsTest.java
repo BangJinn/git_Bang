@@ -20,6 +20,11 @@ public class EqualsTest {
 		
 		System.out.println(book1 == book2);		//주소비교
 		System.out.println(book1.equals(book2));//문자열비교
+	
+		System.out.println(System.identityHashCode(book1));
+		System.out.println(System.identityHashCode(book2));
+	
+	
 	}
 
 }

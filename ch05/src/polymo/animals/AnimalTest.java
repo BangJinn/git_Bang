@@ -50,13 +50,15 @@ public class AnimalTest {
 	}
 	
 	public static void main(String[] args) {
-		
+		//객체생성
 		AnimalTest aTest = new AnimalTest();
 		
+		//Animal 타입으로 객체 생성(다형성)
 		Animal human = new Human();
 		Animal eagle = new Eagle();
 		Animal tiger = new tiger();
 		
+		//moveAnimal() 호출
 		aTest.moveAnimal(human);
 		aTest.moveAnimal(eagle);
 		aTest.moveAnimal(tiger);

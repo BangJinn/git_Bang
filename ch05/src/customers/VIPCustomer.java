@@ -9,7 +9,13 @@ public class VIPCustomer extends Customer {
 		saleRatio = 0.1;		//10%
 		bonusRatio = 0.05;		//5%
 	} 
-	
+	public VIPCustomer(int customerId, String customerName,int agentId ) {
+		super(customerId, customerName);
+		this.agentId = agentId;
+		customerGrade = "VIP";	
+		saleRatio = 0.1;		//10%
+		bonusRatio = 0.05;		//5%
+	} 
 	
 	//구매가격 = 가격 - (가격*구매할인율)
 	@Override

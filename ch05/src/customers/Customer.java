@@ -11,11 +11,15 @@ public class Customer {
 
 	public Customer() {
 		customerGrade = "SILVER";			//기본 등급
-		bonusRatio = 0.01;					//1%
-		
-		
+		bonusRatio = 0.01;					//1%	
 	}
-	
+	public Customer(int customerId, String customerName) {
+		this.customerId = customerId;
+		this.customerName = customerName;
+		
+		customerGrade = "SILVER";			//기본 등급
+		bonusRatio = 0.01;					//1%	
+	}
 	public void setCustomerId(int customerId) {	//아이디 입력
 		this.customerId = customerId;
 		
