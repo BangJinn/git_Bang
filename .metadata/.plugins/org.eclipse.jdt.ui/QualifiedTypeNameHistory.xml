@@ -15,9 +15,22 @@
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="kr.or.iei1.model.User1"/>
     <fullyQualifiedTypeName name="banking.array.Account"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="arraylist.dog.Dog"/>
     <fullyQualifiedTypeName name="customers.Customer"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="abstracts.shop.HeadShop"/>
+    <fullyQualifiedTypeName name="abstracts.template.ManualCar"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="interfaceex.calculator.Calculator"/>
+    <fullyQualifiedTypeName name="java.lang.Readable"/>
+    <fullyQualifiedTypeName name="interfaceex.remocon.Television"/>
+    <fullyQualifiedTypeName name="interfaceex.remocon.RemoteControl"/>
+    <fullyQualifiedTypeName name="interfaceex.remocon.RemoteControlTest"/>
+    <fullyQualifiedTypeName name="interfaceex.scheduler.Scheduler"/>
+    <fullyQualifiedTypeName name="interfaceex.scheduler.RoundRobin"/>
+    <fullyQualifiedTypeName name="interfaceex.scheduler.LeastJob"/>
+    <fullyQualifiedTypeName name="interfaceex.scheduler.PriorityAllocation"/>
+    <fullyQualifiedTypeName name="sorting.Sort"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
 </qualifiedTypeNameHistroy>
