@@ -12,6 +12,11 @@ public class CarTest {
 		
 		Car myCar = new AICar();
 		myCar.run();
+		
+	//	String msg = "좋은하루";
+		//System.out.println(msg);
+		
+		
 	}
 
 }
