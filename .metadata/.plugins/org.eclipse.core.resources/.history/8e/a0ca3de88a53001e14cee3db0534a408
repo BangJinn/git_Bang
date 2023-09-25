@@ -1,9 +1,0 @@
-package singleton;
-
-public class Company {
-
-	//싱글톤 코딩 디자인 패턴 사용
-	//맴버 변수가 객체 인스턴스
-	//스태틱을 활용함 - new를 생성하지 않음
-	private static Company instance;
-}
