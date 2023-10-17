@@ -1,6 +1,6 @@
 package abstracts.template;
 
-public class ManualCar extends Car {
+public class ManualCar extends Car{
 
 	@Override
 	public void drive() {
@@ -11,6 +11,4 @@ public class ManualCar extends Car {
 	public void stop() {
 		System.out.println("브레이크로 정지합니다.");
 	}
-
-	
 }

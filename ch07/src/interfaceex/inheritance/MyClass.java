@@ -2,11 +2,6 @@ package interfaceex.inheritance;
 
 public class MyClass implements MyInterface{
 
-	public static void main(String[] args) {
-
-		
-	}
-
 	@Override
 	public void x() {
 		System.out.println("x()");
@@ -19,7 +14,7 @@ public class MyClass implements MyInterface{
 
 	@Override
 	public void method() {
-		
+		System.out.println("method()");
 	}
 
 }

@@ -12,6 +12,8 @@ public class CalcTest {
 		int sub = calc.sub(n1, n2);
 		int mul = calc.mul(n1, n2);
 		int div = calc.div(n1, n2);
+		
+		//출력
 		System.out.println(add);
 		System.out.println(sub);
 		System.out.println(mul);

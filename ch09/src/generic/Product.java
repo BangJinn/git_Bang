@@ -1,9 +1,9 @@
 package generic;
 
 public class Product<T, M> {
-	
 	private T kind;
 	private M model;
+	
 	public T getKind() {
 		return kind;
 	}
@@ -16,5 +16,4 @@ public class Product<T, M> {
 	public void setModel(M model) {
 		this.model = model;
 	}
-
 }

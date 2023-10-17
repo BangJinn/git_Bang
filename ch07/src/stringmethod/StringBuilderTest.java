@@ -8,16 +8,14 @@ public class StringBuilderTest {
 		
 		StringBuilder buffer = new StringBuilder(javaStr);
 		System.out.println(buffer);
-		System.out.println("연산전 buffer 메모리 주소 : " + System.identityHashCode(buffer));
+		System.out.println("연산전 buffer 메모리 주소: " + System.identityHashCode(buffer));
 		
-		//문자열 추가, 연결
+		//문자열 추가, 연결 - append() 사용
 		buffer.append(" and");
 		buffer.append(" android");
-		buffer.append(" programming is not fun~");
+		buffer.append(" programming is fun!!");
+		
 		System.out.println(buffer);
-		System.out.println("연산전 buffer 메모리 주소 : " + System.identityHashCode(buffer));
-		
-		
+		System.out.println("연산후 buffer 메모리 주소: " + System.identityHashCode(buffer));
 	}
-
 }

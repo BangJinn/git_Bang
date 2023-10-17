@@ -13,10 +13,11 @@ public class LocalDateTimeTest {
 		LocalDateTime now = LocalDateTime.now();
 		System.out.println(now);
 		
-		// 날짜 / 시간 포맷 설정 - "yyyy/MM/dd HH:mm:ss a"
-		DateTimeFormatter timeFormat =
-				DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss a");
-		System.out.println(now.format(timeFormat));
+		//날짜/시간 포맷 설정 - "yyyy/MM/dd HH:mm:ss a"
+		DateTimeFormatter dtFormat = 
+				DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss a");
+		
+		System.out.println(now.format(dtFormat));
 		
 		//날짜 설정
 		LocalDate date = LocalDate.now();
@@ -26,14 +27,14 @@ public class LocalDateTimeTest {
 		LocalTime time = LocalTime.now();
 		System.out.println(time);
 		
-		//시간 포멧 설정
-		DateTimeFormatter timeFormat1 =
+		//시간 포맷 설정 - "HH:mm:ss a"
+		DateTimeFormatter timeFormat = 
 				DateTimeFormatter.ofPattern("HH:mm:ss a");
-		System.out.println(now.format(timeFormat1));
+		System.out.println(time.format(timeFormat));
 		
 		//특정 날짜 지정하기
-		LocalDate startDay =LocalDate.of(2023, 8, 1);
-		LocalDate today =LocalDate.of(2023, 9, 15);
+		LocalDate startDay = LocalDate.of(2023, 8, 1);
+		LocalDate today = LocalDate.of(2023, 9, 15);
 		
 		//지나온 날짜 계산하기
 		long passedTime = ChronoUnit.DAYS.between(startDay, today);
@@ -41,3 +42,7 @@ public class LocalDateTimeTest {
 	}
 
 }
+
+
+
+

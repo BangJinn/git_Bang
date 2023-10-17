@@ -1,25 +1,24 @@
 package abstracts.player;
 
-public class SuperLevel extends PlayerLevel {
+public class SuperLevel extends PlayerLevel{
 
 	@Override
 	public void run() {
-		System.out.println("개 빨리 달림");
+		System.out.println("엄청 빨리 달립니다");
 	}
 
 	@Override
 	public void jump() {
-		System.out.println("개 높게 점프");
+		System.out.println("매우 높히 jump 합니다.");
 	}
 
 	@Override
 	public void turn() {
-		System.out.println("턴 할 줄 암");
+		System.out.println("turn 할 수 있음");
 	}
 
 	@Override
 	public void showLevelMessage() {
-		System.out.println("==고인물==");
+		System.out.println("*** 고급자 레벨입니다 ***");
 	}
-
 }

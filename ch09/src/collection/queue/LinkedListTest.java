@@ -6,23 +6,25 @@ import java.util.List;
 public class LinkedListTest {
 
 	public static void main(String[] args) {
-
+		//Queue 방식 - 선입선출(FIFO)
 		List<String> myList = new LinkedList<>();
 		
-		myList.add("A");
-		myList.add("B");
+		//자료 추가
+		myList.add("A");  //0번
+		myList.add("B");  //1번
 		myList.add("C");
 		
+		//객체 출력
 		System.out.println(myList);
 		
-		myList.add(2,"D");
+		//특정 위치에 자료 추가
+		myList.add(2, "D");
 		System.out.println(myList);
 		
+		//전체 요소 출력
 		for(String list : myList) {
 			System.out.print(list + " ");
-			
 		}
-		
 		
 	}
 

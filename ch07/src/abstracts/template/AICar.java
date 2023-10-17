@@ -1,6 +1,6 @@
 package abstracts.template;
 
-public class AICar extends Car {
+public class AICar extends Car{
 
 	@Override
 	public void drive() {
