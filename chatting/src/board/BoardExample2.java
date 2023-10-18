@@ -35,9 +35,9 @@ public class BoardExample2 {
 	public void list() {
 		System.out.println();
 		System.out.println("[게시글 목록]");
-		System.out.println("-------------------------------------------------------------");
-		System.out.printf("%-4s%-12s%-12s%-40s \n", "no", "writer", "date", "title" );
-		System.out.println("-------------------------------------------------------------");
+		System.out.println("------------------------------------------------------------------");
+		System.out.printf("%-4s%-12s%-12s%-20s%-20s \n", "no", "writer", "date", "title", "content" );
+		System.out.println("------------------------------------------------------------------");
 		
 		//db - board 테이블의 모든 게시글 가져오기
 		
@@ -51,12 +51,14 @@ public class BoardExample2 {
 				board.setBwriter(rs.getString("bwriter"));
 				board.setBdate(rs.getDate("bdate"));
 				board.setBtitle(rs.getString("btitle"));
+				board.setBcontent(rs.getString("bcontent"));
 				
-				System.out.printf("%-4s%-12s%-12s%-40s \n",
+				System.out.printf("%-4s%-12s%-12s%-20s%-20s \n",
 						board.getBno(),
 						board.getBwriter(),
 						board.getBdate(),
-						board.getBtitle()
+						board.getBtitle(),
+						board.getBcontent()
 						);
 			}	//while 끝
 			rs.close();
@@ -93,23 +95,211 @@ public class BoardExample2 {
 	}
 	
 	public void create() {
-		System.out.println("create() 메서드 실행됨");
+		//System.out.println("create() 메서드 실행됨");
+		Board board = new Board();
+		System.out.println("[새 게시물 입력]");
+		
+		
+		System.out.print("제목 : ");
+		String title = scanner.nextLine();
+		board.setBtitle(title);
+		
+		System.out.print("내용 : ");
+		String content = scanner.nextLine();
+		board.setBcontent(content);
+		
+		System.out.print("작성자 : ");
+		String writer = scanner.nextLine();
+		board.setBwriter(writer);
+		
+		//db 작업
+		try {
+			String sql = "INSERT INTO board(bno, btitle, bcontent, bwriter) " 
+					+ "VALUES (seq.NEXTVAL, ?,?,?)";
+			pstmt =conn.prepareStatement(sql);
+			pstmt.setString(1, board.getBtitle());
+			pstmt.setString(2, board.getBcontent());
+			pstmt.setString(3, board.getBwriter());
+			//sql 실행
+			pstmt.executeUpdate();
+			
+			
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			exit();	//종료 메서드 호출
+		}
+		
+		//목록 메서드 호출
 		list();
 	}
 	
 	public void read() {
-		System.out.println("read() 메서드 실행됨");
+		//System.out.println("read() 메서드 실행됨");
+		System.out.println("[게시물 읽기]");
+		System.out.println("글번호 입력: ");
+		int bno = Integer.parseInt(scanner.nextLine());
+		
+		
+		try {
+			String sql = "SELECT * FROM board WHERE bno = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			//쿼리 실행
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {		//찾는 자료가 있으면
+				Board board = new Board();
+				board.setBno(rs.getInt("bno"));
+				board.setBwriter(rs.getString("bwriter"));
+				board.setBdate(rs.getDate("bdate"));
+				board.setBtitle(rs.getString("btitle"));
+				board.setBcontent(rs.getString("bcontent"));
+				
+				//콘솔에 출력
+				System.out.println("====================================================");
+				System.out.println("글번호 : " + board.getBno());
+				System.out.println("글제목 : " + board.getBtitle());
+				System.out.println("글내용 : " + board.getBcontent());
+				System.out.println("작성자 : " + board.getBwriter());
+				System.out.println("작성일 : " + board.getBdate());
+				System.out.println("====================================================");
+				
+				System.out.println("1.글수정 | 2.글삭제 | 3.글목록");
+				System.out.println("선택 : ");
+				String menuNo = scanner.nextLine();
+				
+				if(menuNo.equals("1")) {
+					update(board);
+					
+					
+				}else if(menuNo.equals("2")) {
+					delete(board);
+				}
+				
+				
+			}	//if 끝
+		} catch (SQLException e) {
+			e.printStackTrace();
+			exit();
+		}
+		
 		list();
 	}
+	
+	public void update(Board board) {	//이미 작성된 글(board) 가져와서 수
+		System.out.println("[수정할 내용 입력]");
+		
+		System.out.print("제목 : ");
+		String title = scanner.nextLine();
+		board.setBtitle(title);
+		
+		System.out.print("내용 : ");
+		String content = scanner.nextLine();
+		board.setBcontent(content);
+		
+		System.out.print("작성자 : ");
+		String writer = scanner.nextLine();
+		board.setBwriter(writer);
+		
+		//db 작업 - update
+		
+		try {
+			String sql = "UPDATE board SET btitle=?, bcontent=?, bwriter=? "
+					+ "WHERE bno=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, board.getBtitle());	//콘솔에서 수정한 제목을 db에 저장
+			pstmt.setString(2,board.getBcontent());
+			pstmt.setString(3,board.getBwriter());
+			pstmt.setInt(4,board.getBno());
+			
+			
+			
+			pstmt.executeUpdate();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			exit();
+		}
+	}
+
+
+	public void delete(Board board) {
+		// 확인 , 취소 메뉴
+	      System.out.println("정말로 삭제하시겠습니까?");
+	      System.out.println("1.Ok | 2.Cancel");
+	      System.out.println("선택: ");
+	      
+	      String menuNo = scanner.nextLine();
+	      if(menuNo.equals("1")) {
+	         //db 작업 - delete
+	         try {
+	            String sql = "delete from board where bno= ?";
+	            pstmt = conn.prepareStatement(sql);
+	            pstmt.setInt(1, board.getBno());
+	            //sql
+	            pstmt.executeUpdate();
+	            
+	            pstmt.close();
+	         } catch (SQLException e) {
+	            e.printStackTrace();
+	            exit();
+	         }
+	      }
+	      
+	   }
+		
+		
+		
+		
+		
+	
 	
 	public void clear() {
-		System.out.println("clear() 메서드 실행됨");
+		//System.out.println("clear() 메서드 실행됨");
+		System.out.println("[전체 게시글 삭제]");
+		System.out.println("================================================");
+		//확인, 취소 메뉴
+		System.out.println("정말로 삭제하시겠습니까?");
+		System.out.println("1. OK | 2.Cancel");
+		System.out.println("선택 : ");
+		
+		String menuNo = scanner.nextLine();
+		if(menuNo.equals("1")) {
+			//db 작업
+			
+			try {
+				String sql = "TRUNCATE TABLE board";
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.executeQuery();
+				
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				exit();
+			}
+			
+			
+		}
+		
+		
+		
 		list();
 	}
 	
-	public void exit() {
-		System.out.println("게시판을 종료합니다.");
-		System.exit(0);
+	public void exit() {	//호출되면 db 연결 종료
+		if(conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+		System.out.println("********게시판을 종료합니다.*********");
+		System.exit(0);	//즉시 종료
 		list();
 	}
 	
